@@ -287,9 +287,11 @@ body {
     font-size: 16px;
   }
 
+  /* Ajustes para os cards mobile */
   .top-10-scroll {
     gap: 15px;
     padding: 10px 0;
+    flex-wrap: nowrap; /* garante rolagem horizontal */
   }
   .card-container {
     min-width: 140px;
@@ -331,9 +333,9 @@ body {
       <li><a href="#">MEUS JOGOS</a></li>
     </ul>
     <div class="header-actions">
-      <button>🔍</button>
-      <button>🔔</button>
-      <img class="profile" src="https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABVB2PLirdQh_1yd9FQBW3HBGcUmWVlTDrUt5l1W_lqDJ33Sl-F6vY8O2X_URorArVYCkG0SnXjA6LXqHBLFVMg_DMtx19TA.png?r=cf8" alt="Perfil">
+      <button></button>
+      <button>VERSAO MOBILE</button>
+      <img class="profile" src="https://images.vexels.com/media/users/3/136865/isolated/svg/7221ccf73801a7e9729d11d505fcff2b.svg">
     </div>
   </div>
 </header>
@@ -346,11 +348,12 @@ body {
 
   <div class="banner-content">
     <h1 id="banner-title">FarCry Primal</h1>
-    <p id="banner-desc">Jogo disponível GRATIS para testar a plataforma</p>
+    <p id="banner-desc">Download disponivel somente para PC
+, para ter acesso siga o perfil da GAMEFLIX no instagran, que voce recebera no direct o link da versao para PC com DOWNLOAD DISPONIVEL</p>
     <a href="https://drive.google.com/uc?export=download&id=1jCvhMNka9U0hJv2NqioXyS3xWGLbI9nQ" download>
       <button class="btn-play">▶ DOWNLOAD GRATIS</button>
     </a>
-    <button class="btn-info">ⓘ Mais informações</button>
+    <button class="btn-info">ⓘ Instagram aqui</button>
   </div>
 </section>
 
@@ -360,7 +363,7 @@ body {
   <div class="top-10-container">
     <button class="arrow-left" onclick="scrollLeft()">‹</button>
     <div class="top-10-scroll" id="top10">
-      <!-- cards... (igual ao seu código) -->
+      <!-- Insira aqui todos os seus cards como estavam no código original -->
     </div>
     <button class="arrow-right" onclick="scrollRight()">›</button>
   </div>
