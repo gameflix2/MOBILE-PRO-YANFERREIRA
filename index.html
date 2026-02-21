@@ -189,30 +189,25 @@ body {
 
 .card-container {
   position: relative;
-  min-width: 300px; /* mais espaço pro numero */
-  height: 260px; /* ajustado */
+  min-width: 300px;
+  height: 260px;
   display: flex;
   align-items: flex-end;
   cursor: pointer;
   transition: transform 0.3s;
 }
 
-.card-container:hover {
-  transform: scale(1.05);
-}
+.card-container:hover { transform: scale(1.05); }
 
 .rank-number{
   position:absolute;
-  left:-10px; /* aproxima do poster */
+  left:-10px;
   bottom:-25px;
-
   font-size:260px;
   font-weight:900;
   line-height:1;
-
   color:transparent;
   -webkit-text-stroke:6px #6a6a6a;
-
   z-index:1;
   pointer-events:none;
 }
@@ -220,10 +215,9 @@ body {
 .poster-img{
   width:180px;
   height:260px;
-
   object-fit:cover;
   z-index:2;
-  margin-left:110px; /* ESSA é a chave */
+  margin-left:110px;
   border-radius:4px;
   box-shadow:0 0 15px rgba(0,0,0,0.5);
 }
@@ -260,138 +254,59 @@ body {
 .arrow-left { left: 5px; }
 .arrow-right { right: 5px; }
 
-@media(max-width:768px){
-  .banner-content h1 { font-size: 2rem; }
-  .banner-content p { font-size: 14px; }
-  .poster-img { width: 100px; height: 150px; margin-left: 50px; }
-  .rank-number { font-size: clamp(60px, 25vw, 120px); left: -10px; bottom: -15px; }
-  .arrow-left, .arrow-right { width: 30px; height: 50px; font-size: 1.5rem; }
-}
-.arrow-left { left: 5px; }
-.arrow-right { right: 5px; }
-
-/* 👇 COLE AQUI 👇 */
-
 /* ROW normal jogos */
 .games-scroll {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px; /* mantém 14px entre os cards */
+  gap: 14px;
 }
 
-.games-scroll::-webkit-scrollbar{
-  display:none;
-}
+.games-scroll::-webkit-scrollbar { display:none; }
 
 .game-card {
   width: calc((100% / 9) - 14px);
-  height: 307px; /* 230 * (800/600) ≈ 307px */
+  height: 307px;
   object-fit: cover;
   border-radius: 4px;
   cursor: pointer;
   transition: transform .3s;
 }
 
-.game-card:hover{
-  transform:scale(1.08);
-}
+.game-card:hover { transform:scale(1.08); }
 
 /* --- AJUSTES MOBILE --- */
 @media (max-width:768px) {
-  /* Ajusta o scroll de jogos para ser horizontal e cards maiores */
   .games-scroll {
     flex-wrap: nowrap;
     overflow-x: auto;
     padding-bottom: 10px;
     gap: 10px;
   }
-
   .game-card {
-    width: 180px;  /* aumenta o tamanho no celular */
-    height: 230px; /* mantém proporção aproximada */
-    flex: 0 0 auto; /* evita quebrar linha */
+    width: 150px;
+    height: 230px;
+    flex: 0 0 auto;
   }
+  .row h2 { font-size: 1.2rem; margin-left: 4%; }
+  .banner { height: 50vh; padding: 0 2%; }
+  .banner-content { max-width: 90%; }
+  .banner-content h1 { font-size: 1.8rem; }
+  .banner-content p { font-size: 14px; }
+  .btn-play, .btn-info { padding: 8px 16px; font-size: 14px; }
+  .top-10-scroll { gap: 15px; padding: 15px 0; }
+  .poster-img { width: 120px; height: 180px; margin-left: 70px; }
+  .rank-number { font-size: clamp(50px, 20vw, 100px); bottom: -15px; left: -10px; }
+}
 
-  /* Ajusta títulos de seção */
-  .row h2 {
-    font-size: 1.2rem;
-    margin-left: 4%;
-  }
-
-  /* Ajusta banner */
-  .banner {
-    height: 50vh; /* reduz altura para mobile */
-    padding: 0 2%;
-  }
-
-  .banner-content {
-    max-width: 90%;
-  }
-
-  .banner-content h1 {
-    font-size: 1.8rem;
-  }
-
-  .banner-content p {
-    font-size: 14px;
-  }
-
-  .btn-play, .btn-info {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-
-  /* Ajusta top 10 */
-  .top-10-scroll {
-    gap: 15px;
-    padding: 15px 0;
-  }
-
-  .poster-img {
-    width: 120px;
-    height: 180px;
-    margin-left: 70px;
-  }
-
-  .rank-number {
-    font-size: clamp(50px, 20vw, 100px);
-    bottom: -15px;
-    left: -10px;
-  }
-}/* --- Ajustes Mobile para Jogos Populares --- */
+/* Ajustes adicionais para Top 10 e jogos populares mobile */
 @media(max-width:768px){
-  /* Banner */
   .banner-content h1 { font-size: 2rem; }
   .banner-content p { font-size: 14px; }
-
-  /* Top 10 */
   .poster-img { width: 100px; height: 150px; margin-left: 50px; }
   .rank-number { font-size: clamp(60px, 25vw, 120px); left: -10px; bottom: -15px; }
   .arrow-left, .arrow-right { width: 30px; height: 50px; font-size: 1.5rem; }
-
-  /* Jogos Populares - agora rola horizontalmente */
-  .games-scroll {
-    display: flex;
-    flex-wrap: nowrap; /* não quebrar linha */
-    overflow-x: auto; /* scroll horizontal */
-    gap: 10px;
-    padding-bottom: 10px;
-  }
-  
-  .games-scroll::-webkit-scrollbar { display: none; }
-  
-  .game-card {
-    flex: 0 0 auto; /* largura fixa, não encolhe */
-    width: 150px; /* tamanho visível no celular */
-    height: 230px; /* proporção correta */
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform .3s;
-  }
-
-  .game-card:hover {
-    transform: scale(1.05);
-  }
+  .games-scroll { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 10px; padding-bottom: 10px; }
+  .game-card { flex: 0 0 auto; width: 150px; height: 230px; }
 }
 </style>
 </head>
@@ -438,17 +353,98 @@ body {
   <div class="top-10-container">
     <button class="arrow-left" onclick="scrollLeft()">‹</button>
     <div class="top-10-scroll" id="top10">
-      <!-- SEUS CARDS TOP 10 AQUI, mantidos igual -->
+
+      <!-- === CARDS TOP 10 ORIGINAIS, mantidos todos === -->
+      <!-- 1. Red Dead Redemption 2 -->
+      <div class="card-container" onclick="updateBanner('Red Dead Redemption 2', 'https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png', 'Crime e ação em um enredo envolvente de irmandade.')">
+        <span class="rank-number">1</span>
+        <img src="https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png" class="poster-img" alt="Red Dead Redemption 2">
+        <div class="badge-new">Novidade</div>
+      </div>
+
+      <!-- 2. God of War Ragnarok -->
+      <div class="card-container" onclick="updateBanner('God of War Ragnarok', 'https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_Ragnarok.jpg','Kratos e Atreus enfrentam novos desafios nórdicos.')">
+        <span class="rank-number">2</span>
+        <img src="https://gmedia.playstation.com/is/image/SIEPDC/god-of-war-ragnarok-store-art-01-10sep21$ru?$800px--t$" class="poster-img" alt="God of War Ragnarok">
+        <div class="badge-new">Novidade</div>
+      </div>
+
+      <!-- 3. FIFA 26 -->
+      <div class="card-container" onclick="updateBanner('FIFA 26', 'https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/FIFA_26_cover.jpg/220px-FIFA_26_cover.jpg','O futebol mais realista agora com modos renovados.')">
+        <span class="rank-number">3</span>
+        <img src="https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/07/Capa-completa-EA-Sports-FC-26.jpg?w=849&h=477&crop=0" class="poster-img" alt="FIFA 26">
+        <div class="badge-new">Novidade</div>
+      </div>
+
+      <!-- 4. Forza Horizon 6 -->
+      <div class="card-container" onclick="updateBanner('Forza Horizon 6', 'https://upload.wikimedia.org/wikipedia/en/2/2b/Forza_Horizon_6_cover.jpg','Corridas insanas e mundos abertos de tirar o fôlego.')">
+        <span class="rank-number">4</span>
+        <img src="https://azitech.com.br/wp-content/uploads/2024/08/Forza-Horizon-6-lancamento.jpg" class="poster-img" alt="Forza Horizon 6">
+        <div class="badge-new">Novidade</div>
+      </div>
+
+      <!-- 5. Battlefield 6 -->
+      <div class="card-container" onclick="updateBanner('Battlefield 6', 'https://upload.wikimedia.org/wikipedia/en/4/43/Battlefield_6_cover.jpg','Ação militar épica em grandes campos de batalha.')">
+        <span class="rank-number">5</span>
+        <img src="https://cdn1.epicgames.com/offer/a14a02aa3c8143729605eaf7c93d7501/EGS_Battlefield6_BattlefieldStudios_S2_1200x1600-a88625a836120c55650c83d17a010c25" class="poster-img" alt="Battlefield 6">
+        <div class="badge-new">Novidade</div>
+      </div>
+
+      <!-- 6. Uncharted 4 -->
+      <div class="card-container" onclick="updateBanner('Uncharted 4', 'https://upload.wikimedia.org/wikipedia/en/f/fd/Uncharted_4_box_art.jpg','A aventura de Nathan Drake continua em busca de tesouros perdidos.')">
+        <span class="rank-number">6</span>
+        <img src="https://cdn1.epicgames.com/offer/8b2d6cf2b45b41f1abe91bc5b7c1e8f9/EGS_UNCHARTEDLegacyofThievesCollection_NaughtyDogLLC_S2_1200x1600-9deaa177d8716bde5478cdd75d850c9c" class="poster-img" alt="Uncharted 4">
+        <div class="badge-new">2 em 1</div>
+      </div>
+
+      <!-- 7. Call of Duty: Modern Warfare 2 -->
+      <div class="card-container" onclick="updateBanner('Call of Duty: Modern Warfare 2', 'https://upload.wikimedia.org/wikipedia/en/9/9c/Call_of_Duty_Modern_Warfare_2_cover.jpg','Combate moderno e intenso em campanhas cinematográficas.')">
+        <span class="rank-number">7</span>
+        <img src="https://image.api.playstation.com/vulcan/img/rnd/202008/1301/raryqz0xAsk3HutslehRAW4A.png" class="poster-img" alt="COD MW2">
+        <div class="badge-new">Novidade</div>
+      </div>
+
+      <!-- 8. GTA 5 -->
+      <div class="card-container" onclick="updateBanner('GTA 5', 'https://upload.wikimedia.org/wikipedia/en/a/ad/GTA_5_cover.png','Explore Los Santos e suas aventuras criminosas épicas.')">
+        <span class="rank-number">8</span>
+        <img src="https://upload.wikimedia.org/wikipedia/pt/8/80/Grand_Theft_Auto_V_capa.png" class="poster-img" alt="GTA 5">
+      </div>
+
+      <!-- 9. Spider-Man 2 -->
+      <div class="card-container" onclick="updateBanner('Spider-Man 2', 'https://upload.wikimedia.org/wikipedia/en/3/3b/Spider-Man_2_cover_art.jpg','Peter Parker retorna em novas aventuras pela cidade.')">
+        <span class="rank-number">9</span>
+        <img src="https://cdn1.epicgames.com/offer/b2818b59c0bb420e9647983dfd254931/EGS_MarvelsSpiderManDigitalDeluxeEdition_InsomniacGamesNixxesSoftware_Editions_S2_1200x1600-148e0014e79aa7c2cb23ae2414b11a16" class="poster-img" alt="Spider-Man 2">
+        <div class="badge-new">Novidade</div>
+      </div>
+
+      <!-- 10. The Last of Us 2 -->
+      <div class="card-container" onclick="updateBanner('The Last of Us 2', 'https://upload.wikimedia.org/wikipedia/en/9/9d/The_Last_of_Us_Part_II_Cover.jpg','Emocionante jornada de Ellie em um mundo pós-apocalíptico.')">
+        <span class="rank-number">10</span>
+        <img src="https://cdn1.epicgames.com/offer/bb41f0eaf53d42d899e3ef08e5d9b0ab/EGS_TheLastofUsPartII_NaughtyDogLLC_S2_1200x1600-5c5f5373bdb44022b0edb8243ed6b3c5" class="poster-img" alt="The Last of Us 2">
+        <div class="badge-new">Novidade</div>
+      </div>
+
     </div>
     <button class="arrow-right" onclick="scrollRight()">›</button>
   </div>
 </div>
 
-<!-- ROW JOGOS -->
+<!-- ROW JOGOS POPULARES -->
 <div class="row">
   <h2>JOGOS POPULARES</h2>
   <div class="games-scroll">
-    <!-- SEUS CARDS JOGOS AQUI, mantidos igual -->
+
+    <!-- === CARDS JOGOS ORIGINAIS, mantidos todos === -->
+    <img src="https://cdn1.epicgames.com/offer/8b2d6cf2b45b41f1abe91bc5b7c1e8f9/EGS_UNCHARTEDLegacyofThievesCollection_NaughtyDogLLC_S2_1200x1600-9deaa177d8716bde5478cdd75d850c9c" class="game-card" alt="Uncharted Collection">
+    <img src="https://upload.wikimedia.org/wikipedia/en/4/43/Battlefield_6_cover.jpg" class="game-card" alt="Battlefield 6">
+    <img src="https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png" class="game-card" alt="Red Dead Redemption 2">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_Ragnarok.jpg" class="game-card" alt="God of War Ragnarok">
+    <img src="https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/07/Capa-completa-EA-Sports-FC-26.jpg?w=849&h=477&crop=0" class="game-card" alt="FIFA 26">
+    <img src="https://azitech.com.br/wp-content/uploads/2024/08/Forza-Horizon-6-lancamento.jpg" class="game-card" alt="Forza Horizon 6">
+    <img src="https://image.api.playstation.com/vulcan/img/rnd/202008/1301/raryqz0xAsk3HutslehRAW4A.png" class="game-card" alt="COD MW2">
+    <img src="https://upload.wikimedia.org/wikipedia/pt/8/80/Grand_Theft_Auto_V_capa.png" class="game-card" alt="GTA 5">
+    <img src="https://cdn1.epicgames.com/offer/b2818b59c0bb420e9647983dfd254931/EGS_MarvelsSpiderManDigitalDeluxeEdition_InsomniacGamesNixxesSoftware_Editions_S2_1200x1600-148e0014e79aa7c2cb23ae2414b11a16" class="game-card" alt="Spider-Man 2">
+
   </div>
 </div>
 
@@ -463,31 +459,21 @@ function updateBanner(title,img,desc){
 
 const top10 = document.getElementById('top10');
 
-/* ✅ SCROLL INTELIGENTE (VOLTA FUNCIONA SEMPRE) */
+/* SCROLL INTELIGENTE */
 function scrollLeft(){
   if(!top10) return;
   const card = top10.querySelector(".card-container");
   if(!card) return;
-
   const scrollAmount = card.offsetWidth + 45;
-
-  top10.scrollBy({
-    left: -scrollAmount * 2,
-    behavior: "smooth"
-  });
+  top10.scrollBy({ left: -scrollAmount*2, behavior: "smooth" });
 }
 
 function scrollRight(){
   if(!top10) return;
   const card = top10.querySelector(".card-container");
   if(!card) return;
-
   const scrollAmount = card.offsetWidth + 45;
-
-  top10.scrollBy({
-    left: scrollAmount * 2,
-    behavior: "smooth"
-  });
+  top10.scrollBy({ left: scrollAmount*2, behavior: "smooth" });
 }
 
 /* header efeito scroll */
@@ -499,10 +485,8 @@ window.addEventListener('scroll', ()=>{
 
 /* SOM estilo Netflix */
 window.addEventListener("DOMContentLoaded", ()=>{
-
   const bannerVideo = document.getElementById("banner-video");
   if(!bannerVideo) return;
-
   function enableSound(){
     if(bannerVideo.muted){
       bannerVideo.muted = false;
@@ -510,14 +494,11 @@ window.addEventListener("DOMContentLoaded", ()=>{
       bannerVideo.play().catch(()=>{});
     }
   }
-
   bannerVideo.addEventListener("mouseenter", enableSound);
   bannerVideo.addEventListener("touchstart", enableSound, {once:true});
   document.addEventListener("click", enableSound, {once:true});
-
 });
 </script>
 
 </body>
 </html>
-
