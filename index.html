@@ -358,6 +358,40 @@ body {
     bottom: -15px;
     left: -10px;
   }
+}/* --- Ajustes Mobile para Jogos Populares --- */
+@media(max-width:768px){
+  /* Banner */
+  .banner-content h1 { font-size: 2rem; }
+  .banner-content p { font-size: 14px; }
+
+  /* Top 10 */
+  .poster-img { width: 100px; height: 150px; margin-left: 50px; }
+  .rank-number { font-size: clamp(60px, 25vw, 120px); left: -10px; bottom: -15px; }
+  .arrow-left, .arrow-right { width: 30px; height: 50px; font-size: 1.5rem; }
+
+  /* Jogos Populares - agora rola horizontalmente */
+  .games-scroll {
+    display: flex;
+    flex-wrap: nowrap; /* não quebrar linha */
+    overflow-x: auto; /* scroll horizontal */
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .games-scroll::-webkit-scrollbar { display: none; }
+  
+  .game-card {
+    flex: 0 0 auto; /* largura fixa, não encolhe */
+    width: 150px; /* tamanho visível no celular */
+    height: 230px; /* proporção correta */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform .3s;
+  }
+
+  .game-card:hover {
+    transform: scale(1.05);
+  }
 }
 </style>
 </head>
@@ -486,3 +520,4 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
 </body>
 </html>
+
