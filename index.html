@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inicio - Gameflix</title>
+<style>
+:root {
+  --netflix-red: #e50914;
+  --bg-dark: #141414;
+  --text-gray: #a3a3a3;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* --- HEADER --- */
+.pinning-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
+  transition: background 0.3s;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 4%;
+  gap: 20px;
+}
+
+.logo {
+  color: var(--netflix-red);
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: -1px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+  padding: 0;
+  font-size: 14px;
+}
+
+.nav-links a {
+  color: #e5e5e5;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--text-gray); }
+
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-actions button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.header-actions img.profile {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --- BANNER --- */
+.banner {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 0 4%;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 150px;
+  background: linear-gradient(to top, var(--bg-dark), transparent);
+  z-index: 1;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+  z-index: 1;
+}
+
+.banner-content {
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+.banner-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.btn-play {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.btn-info {
+  background: rgba(109, 109, 110, 0.7);
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --- TOP 10 ROW --- */
+.row {
+  padding: 20px 4%;
+  margin-top: -50px;
+  position: relative;
+  z-index: 5;
+}
+
+.row h2 {
+  font-size: 1.4vw;
+  color: #e5e5e5;
+  margin-bottom: 10px;
+}
+
+.top-10-container {
+  position: relative;
+}
+
+.top-10-scroll {
+  display: flex;
+  gap: 45px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.top-10-scroll::-webkit-scrollbar { display: none; }
+
+.card-container {
+  position: relative;
+  min-width: 220px;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+}
+
+.rank-number {
+  font-size: clamp(80px, 20vw, 240px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #000;
+  -webkit-text-stroke: 4px #5e5e5e;
+  position: absolute;
+  left: -20px;
+  bottom: -25px;
+  z-index: 1;
+}
+
+.poster-img {
+  width: 140px;
+  height: 200px;
+  object-fit: cover;
+  z-index: 2;
+  margin-left: 70px;
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.badge-new {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  background-color: var(--netflix-red);
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 2px;
+  z-index: 3;
+  text-transform: uppercase;
+}
+
+/* --- Setas de navegação --- */
+.arrow-left, .arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(20,20,20,0.7);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  width: 40px;
+  height: 60px;
+}
+.arrow-left { left: 5px; }
+.arrow-right { right: 5px; }
+
+/* --- Ajustes Mobile --- */
+@media(max-width:768px){
+  .main-header {
+    flex-wrap: wrap;
+    padding: 10px 4%;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .header-actions {
+    margin-left: 0;
+    margin-top: 5px;
+    gap: 10px;
+  }
+
+  .banner {
+    height: 60vh;
+    padding: 0 2%;
+  }
+  .banner-content {
+    max-width: 100%;
+  }
+  .banner-content h1 { font-size: 2rem; }
+  .banner-content p { font-size: 14px; }
+  .btn-play, .btn-info {
+    padding: 8px 18px;
+    font-size: 16px;
+  }
+
+  .top-10-scroll {
+    gap: 15px;
+    padding: 10px 0;
+  }
+  .card-container {
+    min-width: 140px;
+    height: 160px;
+  }
+  .poster-img {
+    width: 90px;
+    height: 130px;
+    margin-left: 40px;
+  }
+  .rank-number {
+    font-size: clamp(50px, 18vw, 100px);
+    left: -8px;
+    bottom: -12px;
+  }
+  .badge-new {
+    font-size: 9px;
+    padding: 1px 4px;
+  }
+  .arrow-left, .arrow-right {
+    width: 25px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="pinning-header" id="header">
+  <div class="main-header">
+    <a href="#" class="logo">GAMEFLIX</a>
+    <ul class="nav-links">
+      <li><a href="#">Início</a></li>
+      <li><a href="#">FPS</a></li>
+      <li><a href="#">RPG</a></li>
+      <li><a href="#">CORRIDA</a></li>
+      <li><a href="#">MEUS JOGOS</a></li>
+    </ul>
+    <div class="header-actions">
+      <button>🔍</button>
+      <button>🔔</button>
+      <img class="profile" src="https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABVB2PLirdQh_1yd9FQBW3HBGcUmWVlTDrUt5l1W_lqDJ33Sl-F6vY8O2X_URorArVYCkG0SnXjA6LXqHBLFVMg_DMtx19TA.png?r=cf8" alt="Perfil">
+    </div>
+  </div>
+</header>
+
+<!-- BANNER -->
+<section class="banner" id="main-banner">
+ <video class="banner-video" autoplay muted loop playsinline>
+  <source src="https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771613996/farcry_z2rivm.mp4" type="video/mp4">
+</video>
+
+  <div class="banner-content">
+    <h1 id="banner-title">FarCry Primal</h1>
+    <p id="banner-desc">Jogo disponível GRATIS para testar a plataforma</p>
+    <a href="https://drive.google.com/uc?export=download&id=1jCvhMNka9U0hJv2NqioXyS3xWGLbI9nQ" download>
+      <button class="btn-play">▶ DOWNLOAD GRATIS</button>
+    </a>
+    <button class="btn-info">ⓘ Mais informações</button>
+  </div>
+</section>
+
+<!-- TOP 10 -->
+<div class="row">
+  <h2>MAIS BAIXADOS GAMEFLIX</h2>
+  <div class="top-10-container">
+    <button class="arrow-left" onclick="scrollLeft()">‹</button>
+    <div class="top-10-scroll" id="top10">
+      <!-- cards... (igual ao seu código) -->
+    </div>
+    <button class="arrow-right" onclick="scrollRight()">›</button>
+  </div>
+</div>
+
+<script>
+function updateBanner(title,img,desc){
+  const bannerTitle = document.getElementById('banner-title');
+  const bannerDesc = document.getElementById('banner-desc');
+  bannerTitle.textContent = title;
+  bannerDesc.textContent = desc;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+const top10 = document.getElementById('top10');
+function scrollLeft(){ top10.scrollBy({left:-top10.clientWidth, behavior:'smooth'}); }
+function scrollRight(){ top10.scrollBy({left:top10.clientWidth, behavior:'smooth'}); }
+
+window.addEventListener('scroll', ()=>{
+  const header = document.getElementById('header');
+  if(window.scrollY>50) header.style.background = 'rgba(20,20,20,0.95)';
+  else header.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent)';
+});
+</script>
+
+</body>
+</html>
