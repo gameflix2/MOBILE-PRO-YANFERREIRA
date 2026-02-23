@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gameflix - Top 10</title>
+<title>Inicio - Gameflix</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -20,7 +20,7 @@ body {
   overflow-x: hidden;
 }
 
-/* HEADER */
+/* --- HEADER --- */
 .pinning-header {
   position: fixed;
   top: 0;
@@ -29,12 +29,14 @@ body {
   background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
   transition: background 0.3s;
 }
+
 .main-header {
   display: flex;
   align-items: center;
   padding: 15px 4%;
   gap: 20px;
 }
+
 .logo {
   color: var(--netflix-red);
   font-size: 28px;
@@ -42,6 +44,7 @@ body {
   text-decoration: none;
   letter-spacing: -1px;
 }
+
 .nav-links {
   display: flex;
   list-style: none;
@@ -49,18 +52,22 @@ body {
   padding: 0;
   font-size: 14px;
 }
+
 .nav-links a {
   color: #e5e5e5;
   text-decoration: none;
   transition: color 0.3s;
 }
+
 .nav-links a:hover { color: var(--text-gray); }
+
 .header-actions {
   margin-left: auto;
   display: flex;
   align-items: center;
   gap: 15px;
 }
+
 .header-actions button {
   background: transparent;
   border: none;
@@ -68,6 +75,7 @@ body {
   cursor: pointer;
   font-size: 16px;
 }
+
 .header-actions img.profile {
   width: 32px;
   height: 32px;
@@ -75,7 +83,7 @@ body {
   cursor: pointer;
 }
 
-/* BANNER */
+/* --- BANNER --- */
 .banner {
   height: 80vh;
   display: flex;
@@ -84,6 +92,7 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 .banner-video {
   position: absolute;
   inset: 0;
@@ -92,6 +101,7 @@ body {
   object-fit: cover;
   z-index: -1;
 }
+
 .banner::after {
   content: '';
   position: absolute;
@@ -99,6 +109,7 @@ body {
   background: linear-gradient(to top, var(--bg-dark), transparent);
   z-index: 1;
 }
+
 .banner::before {
   content: "";
   position: absolute;
@@ -106,21 +117,25 @@ body {
   background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
   z-index: 1;
 }
+
 .banner-content {
   max-width: 600px;
   position: relative;
   z-index: 2;
 }
+
 .banner-content h1 {
   font-size: 3rem;
   margin-bottom: 10px;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
+
 .banner-content p {
   font-size: 16px;
   margin-bottom: 20px;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
+
 .btn-play {
   background-color: #fff;
   color: #000;
@@ -132,6 +147,7 @@ body {
   cursor: pointer;
   margin-right: 10px;
 }
+
 .btn-info {
   background: rgba(109, 109, 110, 0.7);
   color: #fff;
@@ -143,21 +159,24 @@ body {
   cursor: pointer;
 }
 
-/* ROW TOP 10 */
+/* --- TOP 10 ROW --- */
 .row {
   padding: 20px 4%;
   margin-top: -50px;
   position: relative;
   z-index: 5;
 }
+
 .row h2 {
   font-size: 1.4vw;
   color: #e5e5e5;
   margin-bottom: 10px;
 }
+
 .top-10-container {
   position: relative;
 }
+
 .top-10-scroll {
   display: flex;
   gap: 45px;
@@ -165,8 +184,11 @@ body {
   padding: 20px 0;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  justify-content: center; /* centraliza cards */
 }
+
 .top-10-scroll::-webkit-scrollbar { display: none; }
+
 .card-container {
   position: relative;
   min-width: 300px;
@@ -176,7 +198,11 @@ body {
   cursor: pointer;
   transition: transform 0.3s;
 }
-.card-container:hover { transform: scale(1.05); }
+
+.card-container:hover {
+  transform: scale(1.05);
+}
+
 .rank-number {
   position: absolute;
   left: -10px;
@@ -189,6 +215,7 @@ body {
   z-index: 1;
   pointer-events: none;
 }
+
 .poster-img {
   width: 180px;
   height: 260px;
@@ -198,34 +225,22 @@ body {
   border-radius: 4px;
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
+
 .badge-new {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 8px;
+  left: 8px;
   background-color: var(--netflix-red);
   color: white;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
-  padding: 3px 7px;
-  border-radius: 3px;
-  z-index: 5;
+  padding: 2px 6px;
+  border-radius: 2px;
+  z-index: 3;
   text-transform: uppercase;
 }
 
-/* FAIXA TOP 10 CENTRALIZADA */
-.faixa-destaque {
-  font-family:'Bebas Neue', sans-serif;
-  color:#fff;
-  text-align:center;
-  background: rgba(255,0,0,0.2);
-  border-radius: 6px;
-  padding: 20px 40px;
-  margin: 20px auto;
-  font-size: clamp(24px, 5vw, 48px);
-  max-width: 90%;
-}
-
-/* SETAS */
+/* Setas de navegação */
 .arrow-left, .arrow-right {
   position: absolute;
   top: 50%;
@@ -240,10 +255,98 @@ body {
   width: 40px;
   height: 60px;
 }
+
 .arrow-left { left: 5px; }
 .arrow-right { right: 5px; }
 
-/* BOTÃO COMPRAR AGORA */
+/* Frase Top 10 centralizada */
+.faixa-destaque{
+  font-family:'Bebas Neue', sans-serif;
+  color:#fff;
+  text-align:center;
+  padding:24px 20px;
+  font-size:clamp(24px, 4vw, 60px);
+  margin: 20px 0;
+}
+
+/* ROW JOGOS */
+.games-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 14px;
+  padding: 10px 0;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.games-scroll::-webkit-scrollbar { display: none; }
+
+.game-card {
+  flex: 0 0 auto;
+  width: 180px;
+  height: 307px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.game-card:hover {
+  transform: scale(1.08);
+}
+
+/* COMBOS */
+.combo-scroll{
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  padding:10px 0;
+}
+
+.combo-scroll::-webkit-scrollbar{ display:none; }
+
+.combo-card{
+  min-width:260px;
+  height:150px;
+  border-radius:6px;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.3s;
+  background:#1c1c1c;
+}
+
+.combo-card:hover{
+  transform:scale(1.06);
+}
+
+.combo-card img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.5;
+}
+
+.combo-info{
+  position:absolute;
+  bottom:0;
+  padding:12px;
+}
+
+.combo-info h3{
+  margin:0;
+  font-size:16px;
+}
+
+.combo-price{
+  font-weight:bold;
+  color:#46d369;
+}
+
+/* BOTÃO COMPRAR AGORA - Estilo Futurista Neon */
 .netflix-btn {
   display: inline-block;
   padding: 22px 55px;
@@ -261,6 +364,7 @@ body {
   transition: 0.3s;
   box-shadow: 0 0 10px #e50914, 0 0 20px #ff3b3b, 0 0 30px #ff3b3b;
 }
+
 .netflix-btn::before {
   content: "";
   position: absolute;
@@ -273,73 +377,40 @@ body {
   filter: blur(15px);
   z-index: -1;
 }
-@keyframes glow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-.netflix-btn:hover { transform: scale(1.1); box-shadow: 0 0 20px #ff0000, 0 0 30px #ff3b3b, 0 0 40px #ff3b3b; }
-.floating-btn-container { text-align:center; margin:40px 0; }
 
-/* ROW JOGOS */
-.games-scroll {
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  padding: 10px 0;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
+@keyframes glow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
-.games-scroll::-webkit-scrollbar { display: none; }
-.game-card {
-  flex: 0 0 auto;
-  width: 180px;
-  height: 307px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-.game-card:hover { transform: scale(1.08); }
 
-/* COMBOS */
-.combo-scroll{
-  display:flex;
-  gap:14px;
-  overflow-x:auto;
-  padding:10px 0;
+.netflix-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ff0000, 0 0 30px #ff3b3b, 0 0 40px #ff3b3b;
 }
-.combo-scroll::-webkit-scrollbar{ display:none; }
-.combo-card{
-  min-width:260px;
-  height:150px;
-  border-radius:6px;
-  position:relative;
-  overflow:hidden;
-  cursor:pointer;
-  transition:.3s;
-  background:#1c1c1c;
-}
-.combo-card:hover{ transform:scale(1.06); }
-.combo-card img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:.5;
-}
-.combo-info{
-  position:absolute;
-  bottom:0;
-  padding:12px;
-}
-.combo-info h3{ margin:0; font-size:16px; }
-.combo-price{ font-weight:bold; color:#46d369; }
 
-/* RESPONSIVO */
+.floating-btn-container {
+  text-align: center;
+  margin: 40px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.netflix-btn {
+  animation: float 2.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.05); }
+}
+
+/* MOBILE */
 @media(max-width:768px){
   .banner-content h1 { font-size: 2rem; }
   .banner-content p { font-size: 14px; }
   .poster-img { width: 100px; height: 150px; margin-left: 50px; }
   .rank-number { font-size: clamp(60px, 25vw, 120px); left: -10px; bottom: -15px; }
   .arrow-left, .arrow-right { width: 30px; height: 50px; font-size: 1.5rem; }
-  .faixa-destaque { font-size: clamp(18px, 5vw, 36px); padding: 16px 24px; }
 }
 </style>
 </head>
@@ -364,96 +435,132 @@ body {
 </header>
 
 <section class="banner" id="main-banner">
-<video class="banner-video" autoplay muted loop playsinline id="banner-video">
-  <source src="https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771613996/farcry_z2rivm.mp4" type="video/mp4">
-</video>
-<div class="banner-content">
-  <h1 id="banner-title">FarCry Primal</h1>
-  <p id="banner-desc">Jogo disponível GRATIS para testar a plataforma</p>
-  <a href="https://drive.google.com/uc?export=download&id=1jCvhMNka9U0hJv2NqioXyS3xWGLbI9nQ" download>
-  <button class="btn-play">▶ DOWNLOAD GRATIS</button>
-  </a>
-  <button class="btn-info">ⓘ Mais informações</button>
-</div>
+  <video class="banner-video" autoplay muted loop playsinline id="banner-video">
+    <source src="https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771613996/farcry_z2rivm.mp4" type="video/mp4">
+  </video>
+  <div class="banner-content">
+    <h1 id="banner-title">FarCry Primal</h1>
+    <p id="banner-desc">Jogo disponível GRATIS para testar a plataforma</p>
+    <a href="#" download>
+      <button class="btn-play">▶ DOWNLOAD GRATIS</button>
+    </a>
+    <button class="btn-info">ⓘ Mais informações</button>
+  </div>
 </section>
 
+<!-- TOP 10 -->
 <div class="row">
   <h2>VEJA A LISTA DOS TOP 10 JOGOS DA GAMEFLIX</h2>
   <div class="top-10-container">
     <button class="arrow-left" onclick="scrollLeft()">‹</button>
     <div class="top-10-scroll" id="top10">
-      <!-- EXEMPLO CARD -->
-      <div class="card-container">
+      <div class="card-container" onclick="updateBanner('Red Dead Redemption 2','https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png','Crime e ação em um enredo envolvente de irmandade.','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/red_dead_2_hsqfm7.mp4')">
         <span class="rank-number">1</span>
-        <img src="https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png" class="poster-img" alt="Red Dead Redemption 2">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png" class="poster-img">
         <div class="badge-new">Novidade</div>
       </div>
-      <!-- ... Repita cards conforme o seu top 10 -->
-    </div>
-    <div class="faixa-destaque">
-      LEVE ESSES 10 ÍCONES DO MUNDO DOS GAMES DE 149,00 por 49,90 — POR TEMPO LIMITADO
+      <div class="card-container" onclick="updateBanner('God of War','https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_4_cover.jpg','Aventura épica de pai e filho','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/god_of_war.mp4')">
+        <span class="rank-number">2</span>
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_4_cover.jpg" class="poster-img">
+      </div>
+      <div class="card-container" onclick="updateBanner('The Witcher 3','https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg','RPG imersivo em um mundo fantástico','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/witcher_3.mp4')">
+        <span class="rank-number">3</span>
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg" class="poster-img">
+      </div>
+      <div class="card-container" onclick="updateBanner('Cyberpunk 2077','https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg','Futuro distópico em Night City','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/cyberpunk_2077.mp4')">
+        <span class="rank-number">4</span>
+        <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg" class="poster-img">
+      </div>
+      <div class="card-container" onclick="updateBanner('Assassin’s Creed Valhalla','https://upload.wikimedia.org/wikipedia/en/4/4b/Assassin%27s_Creed_Valhalla.jpg','Conquiste o mundo como um vikingo','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/ac_valhalla.mp4')">
+        <span class="rank-number">5</span>
+        <img src="https://upload.wikimedia.org/wikipedia/en/4/4b/Assassin%27s_Creed_Valhalla.jpg" class="poster-img">
+      </div>
+      <div class="card-container" onclick="updateBanner('Elden Ring','https://upload.wikimedia.org/wikipedia/en/0/0b/Elden_Ring_Cover.jpg','Mundo aberto e bosses desafiadores','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/elden_ring.mp4')">
+        <span class="rank-number">6</span>
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/0b/Elden_Ring_Cover.jpg" class="poster-img">
+      </div>
+      <div class="card-container" onclick="updateBanner('Horizon Forbidden West','https://upload.wikimedia.org/wikipedia/en/0/0e/Horizon_Forbidden_West.jpg','Ação e exploração em mundo pós-apocalíptico','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/horizon_fw.mp4')">
+        <span class="rank-number">7</span>
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/0e/Horizon_Forbidden_West.jpg" class="poster-img">
+      </div>
+      <div class="card-container" onclick="updateBanner('Resident Evil Village','https://upload.wikimedia.org/wikipedia/en/e/e0/Resident_Evil_Village_Cover.jpg','Terror e ação no universo RE','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/re_village.mp4')">
+        <span class="rank-number">8</span>
+        <img src="https://upload.wikimedia.org/wikipedia/en/e/e0/Resident_Evil_Village_Cover.jpg" class="poster-img">
+      </div>
+      <div class="card-container" onclick="updateBanner('FIFA 23','https://upload.wikimedia.org/wikipedia/en/5/53/FIFA_23_cover.jpg','Futebol realista e campeonatos globais','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/fifa_23.mp4')">
+        <span class="rank-number">9</span>
+        <img src="https://upload.wikimedia.org/wikipedia/en/5/53/FIFA_23_cover.jpg" class="poster-img">
+      </div>
+      <div class="card-container" onclick="updateBanner('Call of Duty: Modern Warfare II','https://upload.wikimedia.org/wikipedia/en/9/96/Call_of_Duty_Modern_Warfare_II.jpg','FPS intenso com multiplayer','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/cod_mw2.mp4')">
+        <span class="rank-number">10</span>
+        <img src="https://upload.wikimedia.org/wikipedia/en/9/96/Call_of_Duty_Modern_Warfare_II.jpg" class="poster-img">
+      </div>
     </div>
     <button class="arrow-right" onclick="scrollRight()">›</button>
   </div>
-  <div class="floating-btn-container">
-    <button class="netflix-btn">COMPRAR AGORA</button>
+</div>
+
+<!-- BOTÃO COMPRAR AGORA -->
+<div class="floating-btn-container">
+  <button class="netflix-btn">Comprar Agora</button>
+</div>
+
+<!-- ROW JOGOS -->
+<div class="row">
+  <h2>JOGOS EM DESTAQUE</h2>
+  <div class="games-scroll">
+    <img class="game-card" src="https://upload.wikimedia.org/wikipedia/en/a/a2/Fall_Guys_Cover.png" alt="Fall Guys">
+    <img class="game-card" src="https://upload.wikimedia.org/wikipedia/en/6/6d/Among_Us_cover_art.jpg" alt="Among Us">
+    <img class="game-card" src="https://upload.wikimedia.org/wikipedia/en/d/d3/Minecraft_Cover.png" alt="Minecraft">
+    <img class="game-card" src="https://upload.wikimedia.org/wikipedia/en/5/5a/Lego_Star_Wars_Cover.jpg" alt="Lego Star Wars">
   </div>
 </div>
 
-<!-- ROW JOGOS E COMBOS continuam iguais -->
+<!-- ROW COMBOS -->
+<div class="row">
+  <h2>COMBOS E OFERTAS</h2>
+  <div class="combo-scroll">
+    <div class="combo-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/7/7f/Steam_Logo.png" alt="">
+      <div class="combo-info">
+        <h3>Combo Steam</h3>
+        <p class="combo-price">R$ 49,90</p>
+      </div>
+    </div>
+    <div class="combo-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Origin_logo.png" alt="">
+      <div class="combo-info">
+        <h3>Combo Origin</h3>
+        <p class="combo-price">R$ 69,90</p>
+      </div>
+    </div>
+    <div class="combo-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Uplay_logo.png" alt="">
+      <div class="combo-info">
+        <h3>Combo Ubisoft</h3>
+        <p class="combo-price">R$ 59,90</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
-function updateBanner(title, img, desc, trailerLink=null){
-  const bannerTitle = document.getElementById('banner-title');
-  const bannerDesc = document.getElementById('banner-desc');
+// Atualiza o banner principal ao clicar no card
+function updateBanner(title, img, desc, video) {
+  document.getElementById('banner-title').innerText = title;
+  document.getElementById('banner-desc').innerText = desc;
   const bannerVideo = document.getElementById('banner-video');
-  bannerTitle.textContent = title;
-  bannerDesc.textContent = desc;
-  if(trailerLink && bannerVideo){
-    bannerVideo.src = trailerLink;
-    bannerVideo.muted = true;
-    bannerVideo.play().catch(()=>{});
-  }
-  window.scrollTo({top:0, behavior:'smooth'});
+  bannerVideo.src = video;
+  bannerVideo.play();
 }
 
-const top10 = document.getElementById('top10');
-function scrollLeft(){
-  if(!top10) return;
-  const card = top10.querySelector(".card-container");
-  if(!card) return;
-  const scrollAmount = card.offsetWidth + 45;
-  top10.scrollBy({ left: -scrollAmount*2, behavior: "smooth" });
+// Scroll Top 10
+function scrollLeft() {
+  document.getElementById('top10').scrollBy({left: -400, behavior: 'smooth'});
 }
-function scrollRight(){
-  if(!top10) return;
-  const card = top10.querySelector(".card-container");
-  if(!card) return;
-  const scrollAmount = card.offsetWidth + 45;
-  top10.scrollBy({ left: scrollAmount*2, behavior: "smooth" });
+function scrollRight() {
+  document.getElementById('top10').scrollBy({left: 400, behavior: 'smooth'});
 }
-
-window.addEventListener('scroll', ()=>{
-  const header = document.getElementById('header');
-  if(window.scrollY>50) header.style.background = 'rgba(20,20,20,0.95)';
-  else header.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent)';
-});
-
-window.addEventListener("DOMContentLoaded", ()=>{
-  const bannerVideo = document.getElementById("banner-video");
-  if(!bannerVideo) return;
-  function enableSound(){
-    if(bannerVideo.muted){
-      bannerVideo.muted = false;
-      bannerVideo.volume = 0.5;
-      bannerVideo.play().catch(()=>{});
-    }
-  }
-  bannerVideo.addEventListener("mouseenter", enableSound);
-  bannerVideo.addEventListener("touchstart", enableSound, {once:true});
-  document.addEventListener("click", enableSound, {once:true});
-});
-function openCombo(title, desc){ updateBanner(title, null, desc); }
 </script>
 
 </body>
