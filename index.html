@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inicio - Gameflix</title>
+
 <style>
 :root {
   --netflix-red: #e50914;
@@ -11,423 +13,282 @@
   --text-gray: #a3a3a3;
 }
 
-body {
-  margin: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: var(--bg-dark);
-  color: #fff;
-  overflow-x: hidden;
+body{
+  margin:0;
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background:var(--bg-dark);
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* --- HEADER --- */
-.pinning-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
-  transition: background 0.3s;
+/* HEADER */
+.pinning-header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:linear-gradient(to bottom, rgba(0,0,0,.7) 10%, transparent);
+  transition:.3s;
 }
 
-.main-header {
-  display: flex;
-  align-items: center;
-  padding: 15px 4%;
-  gap: 20px;
+.main-header{
+  display:flex;
+  align-items:center;
+  padding:15px 4%;
+  gap:20px;
 }
 
-.logo {
-  color: var(--netflix-red);
-  font-size: 28px;
-  font-weight: bold;
-  text-decoration: none;
-  letter-spacing: -1px;
+.logo{
+  color:var(--netflix-red);
+  font-size:28px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 18px;
-  padding: 0;
-  font-size: 14px;
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:18px;
+  padding:0;
+  font-size:14px;
 }
 
-.nav-links a {
-  color: #e5e5e5;
-  text-decoration: none;
-  transition: color 0.3s;
+.nav-links a{
+  color:#e5e5e5;
+  text-decoration:none;
 }
 
-.nav-links a:hover { color: var(--text-gray); }
-
-.header-actions {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 15px;
+.header-actions{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:15px;
 }
 
-.header-actions button {
-  background: transparent;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
+.header-actions img{
+  width:32px;
+  height:32px;
+  border-radius:4px;
 }
 
-.header-actions img.profile {
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  cursor: pointer;
+/* BANNER */
+.banner{
+  height:80vh;
+  display:flex;
+  align-items:center;
+  padding:0 4%;
+  position:relative;
+  overflow:hidden;
 }
 
-/* --- BANNER --- */
-.banner {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  padding: 0 4%;
-  position: relative;
-  overflow: hidden;
+.banner-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-1;
 }
 
-.banner-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+.banner::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:150px;
+  background:linear-gradient(to top,var(--bg-dark),transparent);
 }
 
-.banner::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; width: 100%; height: 150px;
-  background: linear-gradient(to top, var(--bg-dark), transparent);
-  z-index: 1;
+.banner::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to right,rgba(0,0,0,.85),rgba(0,0,0,.2));
 }
 
-.banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
-  z-index: 1;
+.banner-content{
+  max-width:600px;
+  position:relative;
+  z-index:2;
 }
 
-.banner-content {
-  max-width: 600px;
-  position: relative;
-  z-index: 2;
+.banner-content h1{
+  font-size:3rem;
+  margin-bottom:10px;
 }
 
-.banner-content h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+.banner-content p{
+  font-size:16px;
+  margin-bottom:20px;
 }
 
-.banner-content p {
-  font-size: 16px;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+/* BOTÕES */
+.btn-play,.btn-info{
+  padding:10px 25px;
+  font-size:18px;
+  font-weight:bold;
+  border-radius:4px;
+  border:none;
+  cursor:pointer;
 }
 
-.btn-play {
-  background-color: #fff;
-  color: #000;
-  border: none;
-  padding: 10px 25px;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 10px;
+.btn-play{background:#fff;color:#000;}
+.btn-info{background:rgba(109,109,110,.7);color:#fff;}
+
+/* ROW */
+.row{
+  padding:20px 4%;
+  margin-top:-50px;
+  position:relative;
+  z-index:5;
 }
 
-.btn-info {
-  background: rgba(109, 109, 110, 0.7);
-  color: #fff;
-  border: none;
-  padding: 10px 25px;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
+.row h2{
+  font-size:1.4vw;
+  margin-bottom:10px;
 }
 
-/* --- TOP 10 ROW --- */
-.row {
-  padding: 20px 4%;
-  margin-top: -50px;
-  position: relative;
-  z-index: 5;
+/* TOP 10 */
+.top-10-scroll{
+  display:flex;
+  gap:45px;
+  overflow-x:auto;
+  padding:20px 0;
+  scrollbar-width:none;
+}
+.top-10-scroll::-webkit-scrollbar{display:none;}
+
+.card-container{
+  position:relative;
+  min-width:300px;
+  height:260px;
+  display:flex;
+  align-items:flex-end;
+  cursor:pointer;
+  transition:.3s;
+}
+.card-container:hover{transform:scale(1.05);}
+
+.rank-number{
+  position:absolute;
+  left:-10px;
+  bottom:-25px;
+  font-size:260px;
+  font-weight:900;
+  color:transparent;
+  -webkit-text-stroke:6px #6a6a6a;
 }
 
-.row h2 {
-  font-size: 1.4vw;
-  color: #e5e5e5;
-  margin-bottom: 10px;
+.poster-img{
+  width:180px;
+  height:260px;
+  object-fit:cover;
+  z-index:2;
+  margin-left:110px;
+  border-radius:4px;
 }
 
-.top-10-container {
-  position: relative;
+/* GAMES GRID */
+.games-scroll{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
 }
 
-.top-10-scroll {
-  display: flex;
-  gap: 45px;
-  overflow-x: auto;
-  padding: 20px 0;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
+.game-card{
+  width:calc((100%/9) - 14px);
+  height:307px;
+  object-fit:cover;
+  border-radius:4px;
+  transition:.3s;
+}
+.game-card:hover{transform:scale(1.08);}
+
+/* BOTAO */
+.netflix-btn{
+  padding:22px 55px;
+  font-size:26px;
+  font-weight:bold;
+  text-transform:uppercase;
+  color:#fff;
+  background:linear-gradient(90deg,#e50914,#ff3b3b);
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:0 0 10px #e50914,0 0 20px #ff3b3b;
 }
 
-.top-10-scroll::-webkit-scrollbar { display: none; }
-
-.card-container {
-  position: relative;
-  min-width: 220px;
-  height: 200px;
-  display: flex;
-  align-items: flex-end;
-  cursor: pointer;
-  transition: transform 0.3s;
+/* FAIXA */
+.faixa-destaque{
+  font-family:'Bebas Neue',sans-serif;
+  color:#fff;
+  text-align:center;
+  padding:24px 40px;
+  font-size:36px;
 }
 
-.card-container:hover {
-  transform: scale(1.05);
-}
+/* ========================= */
+/* ✅ MOBILE — NÃO MUDA DESIGN */
+/* ========================= */
 
-.rank-number {
-  font-size: clamp(80px, 20vw, 240px);
-  font-weight: 900;
-  line-height: 1.1;
-  color: #000;
-  -webkit-text-stroke: 4px #5e5e5e;
-  position: absolute;
-  left: -20px;
-  bottom: -25px;
-  z-index: 1;
-}
-
-.poster-img {
-  width: 140px;
-  height: 200px;
-  object-fit: cover;
-  z-index: 2;
-  margin-left: 70px;
-  border-radius: 3px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-}
-
-.badge-new {
-  position: absolute;
-  bottom: 8px;
-  right: 12px;
-  background-color: var(--netflix-red);
-  color: white;
-  font-size: 11px;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 2px;
-  z-index: 3;
-  text-transform: uppercase;
-}
-
-/* --- Setas de navegação --- */
-.arrow-left, .arrow-right {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(20,20,20,0.7);
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-  width: 40px;
-  height: 60px;
-}
-.arrow-left { left: 5px; }
-.arrow-right { right: 5px; }
-
-/* --- Ajustes Mobile --- */
 @media(max-width:768px){
-  .main-header { flex-wrap: wrap; padding: 10px 4%; }
-  .nav-links { flex-wrap: wrap; gap: 10px; font-size: 12px; margin-top: 5px; }
-  .header-actions { margin-left: 0; margin-top: 5px; gap: 10px; }
 
-  .banner { height: 60vh; padding: 0 2%; }
-  .banner-content { max-width: 100%; }
-  .banner-content h1 { font-size: 2rem; }
-  .banner-content p { font-size: 14px; }
-  .btn-play, .btn-info { padding: 8px 18px; font-size: 16px; }
+.main-header{gap:10px;}
+.nav-links{display:none;} /* padrão Netflix mobile */
 
-  .top-10-scroll { gap: 15px; padding: 10px 0; }
-  .card-container { min-width: 140px; height: 160px; }
-  .poster-img { width: 90px; height: 130px; margin-left: 40px; }
-  .rank-number { font-size: clamp(50px, 18vw, 100px); left: -8px; bottom: -12px; }
-  .badge-new { font-size: 9px; padding: 1px 4px; }
-  .arrow-left, .arrow-right { width: 25px; height: 40px; font-size: 1.2rem; }
+.banner{height:70vh;}
+
+.banner-content h1{
+  font-size:clamp(1.6rem,5vw,2rem);
 }
+
+.banner-content p{
+  font-size:14px;
+}
+
+.card-container{
+  min-width:200px;
+  height:170px;
+}
+
+.poster-img{
+  width:110px;
+  height:170px;
+  margin-left:70px;
+}
+
+.rank-number{
+  font-size:clamp(90px,25vw,140px);
+}
+
+.row h2{
+  font-size:16px;
+}
+
+.games-scroll{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.game-card{
+  width:100%;
+  height:auto;
+  aspect-ratio:2/3;
+}
+
+.netflix-btn{
+  font-size:18px;
+  padding:16px 30px;
+}
+
+.faixa-destaque{
+  font-size:22px;
+  padding:18px;
+}
+
+}
+
 </style>
 </head>
 <body>
-
-<header class="pinning-header" id="header">
-  <div class="main-header">
-    <a href="#" class="logo">GAMEFLIX</a>
-    <ul class="nav-links">
-      <li><a href="#">Início</a></li>
-      <li><a href="#">FPS</a></li>
-      <li><a href="#">RPG</a></li>
-      <li><a href="#">CORRIDA</a></li>
-      <li><a href="#">MEUS JOGOS</a></li>
-    </ul>
-    <div class="header-actions">
-      <button></button>
-      <button></button>
-      <img class="profile" src="https://images.vexels.com/media/users/3/136865/isolated/svg/7221ccf73801a7e9729d11d505fcff2b.svg">
-    </div>
-  </div>
-</header>
-
-<!-- BANNER -->
-<section class="banner" id="main-banner">
-<video class="banner-video" autoplay muted loop playsinline id="banner-video">
-  <source src="https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771613996/farcry_z2rivm.mp4" type="video/mp4">
-</video>
-
-  <div class="banner-content">
-    <h1 id="banner-title">FarCry Primal</h1>
-    <p id="banner-desc">Download disponivel somente para PC
-, para ter acesso siga o perfil da GAMEFLIX no instagran</p>
-    <a href="https://drive.google.com/uc?export=download&id=1jCvhMNka9U0hJv2NqioXyS3xWGLbI9nQ" download>
-      <button class="btn-play">▶ DOWNLOAD GRATIS</button>
-    </a>
-    <button class="btn-info">ⓘ Instagram aqui</button>
- </div>
-</section>
-
-<div class="row">
-  <h2>MAIS BAIXADOS GAMEFLIX</h2>
-  <div class="top-10-container">
-    <button class="arrow-left" onclick="scrollLeft()">‹</button>
-    <div class="top-10-scroll" id="top10">
-      <!-- 1 -->
-      <div class="card-container" onclick="updateBanner('Red Dead Redemption 2','https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png','Crime e ação em um enredo envolvente de irmandade.')">
-        <span class="rank-number">1</span>
-        <img class="poster-img" src="https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png" alt="Red Dead Redemption 2">
-        <div class="badge-new">Novidade</div>
-      </div>
-      <!-- 2 -->
-      <div class="card-container" onclick="updateBanner('God of War Ragnarok','https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_Ragnarok.jpg','Kratos e Atreus enfrentam novos desafios nórdicos.')">
-        <span class="rank-number">2</span>
-        <img class="poster-img" src="https://gmedia.playstation.com/is/image/SIEPDC/god-of-war-ragnarok-store-art-01-10sep21$ru?$800px--t$" alt="God of War Ragnarok">
-        <div class="badge-new">Novidade</div>
-      </div>
-      <!-- 3 -->
-      <div class="card-container" onclick="updateBanner('FIFA 26','https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/FIFA_26_cover.jpg/220px-FIFA_26_cover.jpg','O futebol mais realista agora com modos renovados.')">
-        <span class="rank-number">3</span>
-        <img class="poster-img" src="https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/07/Capa-completa-EA-Sports-FC-26.jpg?w=849&h=477&crop=0" alt="FIFA 26">
-        <div class="badge-new">Novidade</div>
-      </div>
-      <!-- 4 -->
-      <div class="card-container" onclick="updateBanner('Forza Horizon 6','https://upload.wikimedia.org/wikipedia/en/2/2b/Forza_Horizon_6_cover.jpg','Corridas insanas e mundos abertos de tirar o fôlego.')">
-        <span class="rank-number">4</span>
-        <img class="poster-img" src="https://azitech.com.br/wp-content/uploads/2024/08/Forza-Horizon-6-lancamento.jpg" alt="Forza Horizon 6">
-        <div class="badge-new">Novidade</div>
-      </div>
-      <!-- 5 -->
-      <div class="card-container" onclick="updateBanner('Battlefield 6','https://upload.wikimedia.org/wikipedia/en/4/43/Battlefield_6_cover.jpg','Ação militar épica em grandes campos de batalha.')">
-        <span class="rank-number">5</span>
-        <img class="poster-img" src="https://cdn1.epicgames.com/offer/a14a02aa3c8143729605eaf7c93d7501/EGS_Battlefield6_BattlefieldStudios_S2_1200x1600-a88625a836120c55650c83d17a010c25" alt="Battlefield 6">
-        <div class="badge-new">Novidade</div>
-      </div>
-      <!-- 6 -->
-      <div class="card-container" onclick="updateBanner('Uncharted 4','https://upload.wikimedia.org/wikipedia/en/f/fd/Uncharted_4_box_art.jpg','A aventura de Nathan Drake continua em busca de tesouros perdidos.')">
-        <span class="rank-number">6</span>
-        <img class="poster-img" src="https://cdn1.epicgames.com/offer/8b2d6cf2b45b41f1abe91bc5b7c1e8f9/EGS_UNCHARTEDLegacyofThievesCollection_NaughtyDogLLC_S2_1200x1600-9deaa177d8716bde5478cdd75d850c9c" alt="Uncharted 4">
-        <div class="badge-new">2 em 1</div>
-      </div>
-      <!-- 7 -->
-      <div class="card-container" onclick="updateBanner('Call of Duty: Modern Warfare 2','https://upload.wikimedia.org/wikipedia/en/9/9c/Call_of_Duty_Modern_Warfare_2_cover.jpg','Combate moderno e intenso em campanhas cinematográficas.')">
-        <span class="rank-number">7</span>
-        <img class="poster-img" src="https://image.api.playstation.com/vulcan/img/rnd/202008/1301/raryqz0xAsk3HutslehRAW4A.png" alt="COD MW2">
-        <div class="badge-new">Novidade</div>
-      </div>
-      <!-- 8 -->
-      <div class="card-container" onclick="updateBanner('GTA 5','https://upload.wikimedia.org/wikipedia/en/a/ad/GTA_5_cover.png','Explore Los Santos e suas aventuras criminosas épicas.')">
-        <span class="rank-number">8</span>
-        <img class="poster-img" src="https://sm.ign.com/ign_br/game/t/the-elder-/the-elder-scrolls-v-skyrim_81xc.jpg" alt="GTA 5">
-      </div>
-      <!-- 9 -->
-      <div class="card-container" onclick="updateBanner('Spider-Man 2','https://upload.wikimedia.org/wikipedia/en/3/3b/Spider-Man_2_cover_art.jpg','Peter Parker retorna em novas aventuras pela cidade.')">
-        <span class="rank-number">9</span>
-        <img class="poster-img" src="https://cdn1.epicgames.com/offer/b2818b59c0bb420e9647983dfd254931/EGS_MarvelsSpiderManDigitalDeluxeEdition_InsomniacGamesNixxesSoftware_Editions_S2_1200x1600-148e0014e79aa7c2cb23ae2414b11a16" alt="Spider-Man 2">
-        <div class="badge-new">Novidade</div>
-      </div>
-      <!-- 10 -->
-      <div class="card-container" onclick="updateBanner('The Last of Us 2','https://upload.wikimedia.org/wikipedia/en/9/9d/The_Last_of_Us_Part_II.jpg','Uma história intensa de sobrevivência e emoções profundas.')">
-        <span class="rank-number">10</span>
-        <img class="poster-img" src="https://m.media-amazon.com/images/M/MV5BODIwYWZmYWMtYTliNC00YWQ5LTg5ZmEtNTZhNmUxNjdiMzNiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="The Last of Us 2">
-        <div class="badge-new">Novidade</div>
-      </div>
-    </div>
-    <button class="arrow-right" onclick="scrollRight()">›</button>
-  </div>
-</div>
-
-<script>
-function updateBanner(title,img,desc){
-  const bannerTitle = document.getElementById('banner-title');
-  const bannerDesc = document.getElementById('banner-desc');
-  bannerTitle.textContent = title;
-  bannerDesc.textContent = desc;
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-const top10 = document.getElementById('top10');
-function scrollLeft(){ top10.scrollBy({left:-top10.clientWidth, behavior:'smooth'}); }
-function scrollRight(){ top10.scrollBy({left:top10.clientWidth, behavior:'smooth'}); }
-
-window.addEventListener('scroll', ()=>{
-  const header = document.getElementById('header');
-  if(window.scrollY>50) header.style.background = 'rgba(20,20,20,0.95)';
-  else header.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent)';
-});
-// ===== Netflix style sound (banner trailer) =====
-window.addEventListener("DOMContentLoaded", ()=>{
-
-  const bannerVideo = document.getElementById('banner-video');
-  if(!bannerVideo) return;
-
-  function enableBannerSound(){
-    if(bannerVideo.muted){
-      bannerVideo.muted = false;
-      bannerVideo.volume = 0.5;
-      bannerVideo.play().catch(()=>{});
-    }
-  }
-
-  // desktop hover
-  bannerVideo.addEventListener('mouseenter', enableBannerSound);
-
-  // mobile toque
-  bannerVideo.addEventListener('touchstart', enableBannerSound, {once:true});
-
-  // fallback clique
-  document.addEventListener('click', enableBannerSound, {once:true});
-
-});
-</script>
-
-</body>
-</html>
-
-
-
