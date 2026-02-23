@@ -358,27 +358,34 @@ body {
 /* 👇 COLE AQUI 👇 */
 
 /* ROW normal jogos */
+/* ROW normal jogos estilo Netflix */
 .games-scroll {
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px; /* mantém 14px entre os cards */
+  flex-wrap: nowrap;       /* SEM quebra de linha */
+  overflow-x: auto;        /* Rola horizontalmente */
+  gap: 14px;               /* Espaçamento entre cards */
+  padding: 10px 0;
+  scrollbar-width: none;   /* Firefox */
+  scroll-behavior: smooth;
 }
 
-.games-scroll::-webkit-scrollbar{
-  display:none;
+.games-scroll::-webkit-scrollbar {
+  display: none;           /* Chrome/Safari */
 }
 
 .game-card {
-  width: calc((100% / 9) - 14px);
-  height: 307px; /* 230 * (800/600) ≈ 307px */
+  flex: 0 0 auto;          /* Não encolhe nem cresce */
+  width: 180px;            /* Tamanho fixo do card */
+  height: 307px;           /* Mantém proporção */
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: transform .3s;
+  transition: transform 0.3s;
 }
 
-.game-card:hover{
-  transform:scale(1.08);
+.game-card:hover {
+  transform: scale(1.08);
+}
 }
   /* COMBOS */
 .combo-scroll{
@@ -853,6 +860,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
 </body>
 
 </html>
+
 
 
 
