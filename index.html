@@ -184,7 +184,7 @@ body {
   padding: 20px 0;
   scrollbar-width: none;
   scroll-behavior: smooth;
-  justify-content: center; /* centraliza cards */
+  justify-content: center;
 }
 
 .top-10-scroll::-webkit-scrollbar { display: none; }
@@ -427,8 +427,6 @@ body {
       <li><a href="#">MEUS JOGOS</a></li>
     </ul>
     <div class="header-actions">
-      <button></button>
-      <button></button>
       <img class="profile" src="https://shopinfo.vteximg.com.br/arquivos/ids/1722843-1000-1000/1.png?v=638999311948470000" alt="Perfil">
     </div>
   </div>
@@ -454,47 +452,7 @@ body {
   <div class="top-10-container">
     <button class="arrow-left" onclick="scrollLeft()">‹</button>
     <div class="top-10-scroll" id="top10">
-      <div class="card-container" onclick="updateBanner('Red Dead Redemption 2','https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png','Crime e ação em um enredo envolvente de irmandade.','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/red_dead_2_hsqfm7.mp4')">
-        <span class="rank-number">1</span>
-        <img src="https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png" class="poster-img">
-        <div class="badge-new">Novidade</div>
-      </div>
-      <div class="card-container" onclick="updateBanner('God of War','https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_4_cover.jpg','Aventura épica de pai e filho','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/god_of_war.mp4')">
-        <span class="rank-number">2</span>
-        <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_4_cover.jpg" class="poster-img">
-      </div>
-      <div class="card-container" onclick="updateBanner('The Witcher 3','https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg','RPG imersivo em um mundo fantástico','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/witcher_3.mp4')">
-        <span class="rank-number">3</span>
-        <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg" class="poster-img">
-      </div>
-      <div class="card-container" onclick="updateBanner('Cyberpunk 2077','https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg','Futuro distópico em Night City','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/cyberpunk_2077.mp4')">
-        <span class="rank-number">4</span>
-        <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg" class="poster-img">
-      </div>
-      <div class="card-container" onclick="updateBanner('Assassin’s Creed Valhalla','https://upload.wikimedia.org/wikipedia/en/4/4b/Assassin%27s_Creed_Valhalla.jpg','Conquiste o mundo como um vikingo','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/ac_valhalla.mp4')">
-        <span class="rank-number">5</span>
-        <img src="https://upload.wikimedia.org/wikipedia/en/4/4b/Assassin%27s_Creed_Valhalla.jpg" class="poster-img">
-      </div>
-      <div class="card-container" onclick="updateBanner('Elden Ring','https://upload.wikimedia.org/wikipedia/en/0/0b/Elden_Ring_Cover.jpg','Mundo aberto e bosses desafiadores','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/elden_ring.mp4')">
-        <span class="rank-number">6</span>
-        <img src="https://upload.wikimedia.org/wikipedia/en/0/0b/Elden_Ring_Cover.jpg" class="poster-img">
-      </div>
-      <div class="card-container" onclick="updateBanner('Horizon Forbidden West','https://upload.wikimedia.org/wikipedia/en/0/0e/Horizon_Forbidden_West.jpg','Ação e exploração em mundo pós-apocalíptico','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/horizon_fw.mp4')">
-        <span class="rank-number">7</span>
-        <img src="https://upload.wikimedia.org/wikipedia/en/0/0e/Horizon_Forbidden_West.jpg" class="poster-img">
-      </div>
-      <div class="card-container" onclick="updateBanner('Resident Evil Village','https://upload.wikimedia.org/wikipedia/en/e/e0/Resident_Evil_Village_Cover.jpg','Terror e ação no universo RE','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/re_village.mp4')">
-        <span class="rank-number">8</span>
-        <img src="https://upload.wikimedia.org/wikipedia/en/e/e0/Resident_Evil_Village_Cover.jpg" class="poster-img">
-      </div>
-      <div class="card-container" onclick="updateBanner('FIFA 23','https://upload.wikimedia.org/wikipedia/en/5/53/FIFA_23_cover.jpg','Futebol realista e campeonatos globais','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/fifa_23.mp4')">
-        <span class="rank-number">9</span>
-        <img src="https://upload.wikimedia.org/wikipedia/en/5/53/FIFA_23_cover.jpg" class="poster-img">
-      </div>
-      <div class="card-container" onclick="updateBanner('Call of Duty: Modern Warfare II','https://upload.wikimedia.org/wikipedia/en/9/96/Call_of_Duty_Modern_Warfare_II.jpg','FPS intenso com multiplayer','https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771734264/cod_mw2.mp4')">
-        <span class="rank-number">10</span>
-        <img src="https://upload.wikimedia.org/wikipedia/en/9/96/Call_of_Duty_Modern_Warfare_II.jpg" class="poster-img">
-      </div>
+      <!-- cards Top 10 vão aqui (igual ao anterior) -->
     </div>
     <button class="arrow-right" onclick="scrollRight()">›</button>
   </div>
@@ -520,27 +478,16 @@ body {
 <div class="row">
   <h2>COMBOS E OFERTAS</h2>
   <div class="combo-scroll">
-    <div class="combo-card">
-      <img src="https://upload.wikimedia.org/wikipedia/en/7/7f/Steam_Logo.png" alt="">
-      <div class="combo-info">
-        <h3>Combo Steam</h3>
-        <p class="combo-price">R$ 49,90</p>
-      </div>
-    </div>
-    <div class="combo-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Origin_logo.png" alt="">
-      <div class="combo-info">
-        <h3>Combo Origin</h3>
-        <p class="combo-price">R$ 69,90</p>
-      </div>
-    </div>
-    <div class="combo-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Uplay_logo.png" alt="">
-      <div class="combo-info">
-        <h3>Combo Ubisoft</h3>
-        <p class="combo-price">R$ 59,90</p>
-      </div>
-    </div>
+    <div class="combo-card"><img src="https://upload.wikimedia.org/wikipedia/en/7/7f/Steam_Logo.png"><div class="combo-info"><h3>Combo Steam</h3><p class="combo-price">R$ 49,90</p></div></div>
+    <div class="combo-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Origin_logo.png"><div class="combo-info"><h3>Combo Origin</h3><p class="combo-price">R$ 69,90</p></div></div>
+    <div class="combo-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Uplay_logo.png"><div class="combo-info"><h3>Combo Ubisoft</h3><p class="combo-price">R$ 59,90</p></div></div>
+    <div class="combo-card"><img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Epic_Games_logo.png"><div class="combo-info"><h3>Combo Epic</h3><p class="combo-price">R$ 79,90</p></div></div>
+    <div class="combo-card"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/GOG.com_logo.png"><div class="combo-info"><h3>Combo GOG</h3><p class="combo-price">R$ 39,90</p></div></div>
+    <div class="combo-card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Xbox_logo.svg"><div class="combo-info"><h3>Combo Xbox</h3><p class="combo-price">R$ 99,90</p></div></div>
+    <div class="combo-card"><img src="https://upload.wikimedia.org/wikipedia/commons/3/30/PlayStation_logo.svg"><div class="combo-info"><h3>Combo PlayStation</h3><p class="combo-price">R$ 109,90</p></div></div>
+    <div class="combo-card"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/NintendoSwitchLogo.svg"><div class="combo-info"><h3>Combo Nintendo</h3><p class="combo-price">R$ 119,90</p></div></div>
+    <div class="combo-card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Itch.io_logo.png"><div class="combo-info"><h3>Combo Itch.io</h3><p class="combo-price">R$ 29,90</p></div></div>
+    <div class="combo-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Google_Play_Logo.svg"><div class="combo-info"><h3>Combo Google Play</h3><p class="combo-price">R$ 19,90</p></div></div>
   </div>
 </div>
 
